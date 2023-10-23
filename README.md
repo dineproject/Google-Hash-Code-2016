@@ -12,7 +12,7 @@ Description du fonctionnement du projet, notamment comment le lancer (paramètre
 
 La syntaxe générale/minimale est
 
-    polyhash.py ./challenges/challenge.txt ./output/sortie.txt
+    polyhash.py ./challenges/challenge.in ./output/sortie.txt
 
 L'équipe
 ========
