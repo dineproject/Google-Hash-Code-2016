@@ -22,4 +22,4 @@ L'équipe
 - Seynabou Faye; seynabou.faye@etu.univ-nantes.fr
 - Younes Hammoutene; younes.hammoutene@etu.univ-nantes.fr
 - Sirine Dakhli sirine.dakhli@etu.univ-nantes.fr
-- Souaibou Dine Barry; 
+- Souaibou Dine Barry souaibou-dine.barry@etu.univ-nantes.fr 
