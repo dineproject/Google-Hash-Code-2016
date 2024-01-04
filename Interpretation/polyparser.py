@@ -41,7 +41,7 @@ def parse_input_file(file_path):
 
     return {'Simulation': simulation, 'ProductType': product_types, 'Warehouse': warehouses, 'Order': orders, 'Drone': drones}
 
-file_path = "a_example.in"
+file_path = "./../challenes/a_exemple.in"
 parsed_data = parse_input_file(file_path)
 
 print("Simulation:", parsed_data['Simulation'])
