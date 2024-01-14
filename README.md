@@ -40,7 +40,7 @@ __fichier : mother_of_all_warehouses.in__
 | d_mother_of_all_warehouses.in  |   63.816                              |    3.13                                | 7.72125                                                     |
 
 
-### 3- Que nous inspire de cette analyse
+### 3- Que nous inspire cette analyse
 
 Il faudrait mieux :
 
@@ -52,6 +52,7 @@ Il faudrait mieux :
 
 
 
+## D- Algorithme de chargement et livraison 
 
 
 
@@ -60,7 +61,7 @@ Il faudrait mieux :
 
 
 
-
+----------------------------------------------------------------------------------------------------------------------------
 Le fichier `README.md` est écrit en [**Markdown**](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) et permet de soigner la _mise en forme_.
 
 Fonctionnement du projet
