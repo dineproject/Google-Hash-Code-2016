@@ -1,7 +1,27 @@
 Projet Poly#
 ============
 
-Décrire brièvement le projet ici.
+## Création des classes
+
+## Extraction des données
+
+## Analyse des données
+
+Pour chaque fichier dans /challenges, on va :
+
+### Réprésenter les données (warehouses, orders, drones) sur un plan orthonormé
+
+Pour ce faire, on s'est servi des bibliothèques `numpy` et `matplotlib`. 
+
+Il faut noter qu'initialement les **drones** se trouvent au **warehouse 0**. Ce qui fait que le premier warehouse est 
+masqué par le losange vert.
+
+fichier : b_busy_day.in
+-----------------------
+
+
+
+
 
 Le fichier `README.md` est écrit en [**Markdown**](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) et permet de soigner la _mise en forme_.
 
