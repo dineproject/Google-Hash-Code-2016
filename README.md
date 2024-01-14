@@ -30,7 +30,14 @@ __fichier : mother_of_all_warehouses.in__
 ![réprésentation des données du fichier mother_of_all_warehouses.in](./mother_of_all_warehouses_in.png)
 
 
+### 2- Analyse statistique des données
 
+
+| Fichier                        | Moyenne du poids d'un type de produit | max_payload/moyenne_poids_type_produit |
+| :----------------------------: |:-------------------------------------:| :-------------------------------------:|
+| b_busy_day.in                  |   64.5875                             |  3.09                                  |
+| c_redudancy.in                 |   63.6525                             |   3.14                                 | 
+| d_mother_of_all_warehouses.in  |   63.816                              |    3.13                                |
 
 
 
