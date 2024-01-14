@@ -40,6 +40,26 @@ __fichier : mother_of_all_warehouses.in__
 | d_mother_of_all_warehouses.in  |   63.816                              |    3.13                                | 7.72125                                                     |
 
 
+### 3- Que nous inspire de cette analyse
+
+Il faudrait mieux :
+
+1- Boucler sur une **order** que sur une **warehouse**
+
+2- Pour une **order** mettre à ses services tous les **drones**
+
+3- Trier les **orders** par nombre d'articles uniquement sur ce critère. Et si les **orders** ont même nombre d'articles, trier par poids de l'**order** sinon encore par diversité des types de produits. Dans un ordre croissant.
+
+
+
+
+
+
+
+
+
+
+
 
 Le fichier `README.md` est écrit en [**Markdown**](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) et permet de soigner la _mise en forme_.
 
