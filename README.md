@@ -18,6 +18,17 @@ masqué par le losange vert.
 
 __fichier : b_busy_day.in__
 
+![réprésentation des données du fichier b_busy_day.in](./b_busy_day_in.png)
+
+
+__fichier : c_redudancy.in__
+
+![réprésentation des données du fichier c_redudancy.in](./c_redudancy_in.png)
+
+__fichier : mother_of_all_warehouses.in__
+
+![réprésentation des données du fichier mother_of_all_warehouses.in](./mother_of_all_warehouses_in.png)
+
 
 
 
