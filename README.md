@@ -52,7 +52,24 @@ Il faudrait mieux :
 
 
 
-## D- Algorithme de chargement et livraison 
+## D- Algorithme
+
+Notre simulation va se dérouler comme suit :
+
+```
+Pour chaque order o, dans les orders triés:
+
+    > Rechercher le warehouse w le plus proche de o qui contient au moins un article de o
+    > Rchercher le drone d le plus proche( forcément non vide) du warehouse w
+    > Déplacer d vers w : avant d'effectuer le déplacement, impliquer turns et décrémenter ( turns est la condition d'arrêt anticipée de la simulation avant que les orders soient toutes livrées)
+    > charger d en commençant ppour un type de produit par le min entre la quantité disponible dans w et celle dans d, si impossible de charger décrementer de 1 pour réessayer jusqu'à 0 puis passer au type de produit suivant; impliquer turns.
+    > Déplacer d vers o : impliquer turns
+    > livrer les articles dans l'inventaire de d à o; impliquer turns
+    > si l'order is_complete passer à l'order suivante sinon reprendre le processus jusqu'à ce que soit is_complete
+```
+
+
+
 
 
 
