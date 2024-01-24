@@ -1,19 +1,54 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+from classes import Simulation, Drone, Warehouse, Order, ProductType
 
-"""Module de parsing des fichiers d'entrée pour la mise en oeuvre du projet Poly#.
-"""
+def parse_input_file(file_path):
+    
+    # Lire le fichier d'entrée dans le repertoire /challenges
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
 
-def parse_challenge(filename: str) -> object:
-    """Lit un fichier de challenge et extrait les informations nécessaires.
+    # premier bloc de données : 1ère ligne
+    rows, columns, drones_count, turns, max_payload = map(int, lines[0].split())
+    
+    # deuxième bloc de données : 2ème ligne
+    product_types_count = int(lines[1])
+    product_types = [ProductType(i, int(weight)) for i, weight in enumerate(lines[2].split())]
 
-    Vous pouvez choisir la structure de données structurées qui va
-    représenter votre challenge: dictionnaire, objet, etc
-    """
-    with open(filename, 'r') as f:
-        # Lire la première ligne et la découper
-        rows, columns, drone_count, deadline, max_load = [ int(v)
-                                                           for v in f.readline().split() ]
-        # ...
+    # troisième bloc de données
+    current_line = 3
+    warehouses_count = int(lines[current_line])
+    warehouses = []
+    for i in range(warehouses_count):
+        current_line += 1
+        location = tuple(map(int, lines[current_line].split()))
+        current_line += 1
+        inventory = {j: int(quantity) for j, quantity in enumerate(lines[current_line].split())}
+        
+        warehouses.append(Warehouse(i, location, inventory))
 
-    return challenge
+    # quatrième bloc de données
+    current_line += 1
+    orders_count = int(lines[current_line])
+    orders = []
+    for i in range(orders_count):
+        current_line += 1
+        location = tuple(map(int, lines[current_line].split()))
+        
+        current_line += 1
+        products_count = int(lines[current_line])
+        products_data = list(map(int, lines[current_line + 1].split()))
+        
+        current_line += 1
+        inventory = {productType: products_data.count(productType) for productType in set(products_data)}
+
+        orders.append(Order(i, location, inventory))
+
+    # créer une liste de drones
+    drones = [Drone(i, warehouses[0].location) for i in range(drones_count)]
+
+    # créer une instance de la classe Simulation
+    simulation = Simulation(rows, columns, drones, turns, max_payload, product_types, warehouses, orders)
+
+    return simulation
+
+
+simulation = parse_input_file(file_path = "a_example.in")

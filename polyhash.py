@@ -1,36 +1,28 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+from polyparser import parse_input_file, Simulation
+from polysolver import process_orders
 
-"""Module principal pour la mise en oeuvre du projet Poly#.
-"""
+def main_algorithm(simulation):
+    # Trier les commandes par : nombre de différents produits, poids, nombre d'articles
+    simulation.sort_orders()
 
-# Vous pouvez structurer votre code en modules pour améliorer la
-# compréhension et faciliter le travail collaboratif
-from polyparser import parse_challenge
-from polysolver import solve, score_solution, save_solution
+    # Procéder à la livraison des commandes une par une
+    delivery_plan = []
+    process_orders(simulation, simulation.orders, delivery_plan)
+    return delivery_plan
 
 if __name__ == "__main__":
-    # On fournit ici un exemple permettant de passer un simple
-    # argument (le fichier du challenge) en paramètre. N'hésitez pas à
-    # compléter avec d'autres paramètres/options.
-
-    # Consultez la documentation du module argparse:
-    # https://docs.python.org/3/library/argparse.html
-
     import argparse
+
     parser = argparse.ArgumentParser(description='Solve Poly# challenge.')
-    parser.add_argument('challenge', type=str,
-                        help='challenge definition filename',
-                        metavar="challenge.txt")
-    parser.add_argument('output', type=str, default=None,
-                        help='output filename',
-                        metavar="sortie.txt")
+    parser.add_argument('challenge', type=str, help='challenge definition filename', metavar="challenge.txt")
+    parser.add_argument('output', type=str, default=None, help='output filename', metavar="sortie.txt")
     args = parser.parse_args()
 
-    challenge = parse_challenge(args.challenge)
-    solution = solve(challenge)
-    if args.output is not None:
-        # Sauvegarder le fichier généré
-        save_solution(args.output, solution)
-        print(f"Solution saved in {args.output}")
-    print(f"Score: {score_solution(solution)}")
+    challenge = parse_input_file(args.challenge)
+    solution = main_algorithm(challenge)
+
+    # Écrire la solution dans le fichier de sortie
+    with open(args.output, 'w') as file:
+        file.write(str(len(solution)) + '\n')
+        for command in solution:
+            file.write(' '.join(map(str, command)) + '\n')
