@@ -17,7 +17,7 @@ class Simulation:
         self.product_types = product_types
         self.warehouses = warehouses
         self.orders = orders
-        self.score = 0
+        #self.score = 0
 
     def sort_orders(self):
         # trier par différents produits en ordre croissant
@@ -339,11 +339,10 @@ def process_orders(simulation, orders, delivery_plan):
 
         # vérifier si la commande est complétée, si oui passer à la commande suivante
         if order.is_completed:
-            #  mettre à jour le score
-            simulation.score += math.ceil(((simulation.turns - order.order_turns)/simulation.turns)*100)
+            # mettre à jour le score
+            # simulation.score += math.ceil(((simulation.turns - order.order_turns)/simulation.turns)*100)
         
             print('Order {} is completed'.format(order.order_id))
-            print(f'score actuel {simulation.score} ')
             write_output_file('challenge.out', delivery_plan)
             process_orders(simulation, orders[1:], delivery_plan)
         else:
@@ -367,9 +366,6 @@ def process_orders(simulation, orders, delivery_plan):
 
 
 simulation = parse_input_file('a_example.in')
-# simulation = parse_input_file('b_busy_day.in')
-# simulation = parse_input_file('c_redudancy.in')
-# simulation = parse_input_file('d_mother_of_all_warehouses.in')
 main_algorithm(simulation)
-# print(simulation.score)
+
 
