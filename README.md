@@ -61,14 +61,17 @@ Avant de commencer l'implémentation de la solution , on s'est d'abord orienté 
 
 1. **Représentation des données sur un plan orthonormé :**
    -Pour chaque fichier dans le répertoire `/challenges`, les données sont représentées graphiquement sur un plan orthonormé.
-   -Le code nécessaire pour cette représentation se trouve dans `data_analyse.ipynb`.
 
-   Exemple :
    - `b_busy_day.in`
+
    ![](./media/b_busy_day_in.png)
+
    - `c_redudancy.in`
+
    ![](./media/c_redudancy_in.png)
+
    - `mother_of_all_warehouses.in`
+   
    ![](./media/d_mother_of_all_warehouses_in.png)
 
 2. **Analyse statistique des données :**
