@@ -1,0 +1,219 @@
+
+    Initialisation :
+        Vous avez déjà effectué cette étape en organisant les données d'entrée dans des structures de données.
+
+    Planification des Livraisons :
+        Analysez les demandes des clients (représentées par la liste Order).
+        Utilisez les entrepôts (Warehouse) pour approvisionner les produits nécessaires.
+
+    Algorithme de Livraison :
+        Pour chaque drone (Drone), planifiez ses mouvements pour effectuer les livraisons.
+        Utilisez les informations sur les entrepôts et les commandes pour générer des commandes de chargement (Load) et de livraison (Deliver) pour chaque drone.
+
+    Génération du Fichier de Sortie :
+        Organisez les commandes générées par les drones dans le format requis pour le fichier de sortie.
+
+    Écriture du Fichier de Sortie :
+        Écrivez le fichier de sortie avec les commandes générées.
+
+  
+Orders = [
+    {
+        'o_location': (1, 1),
+        'o_products': {2: 1, 0: 4}
+    },
+    {
+        'o_location': (3, 3),
+        'o_products': {1: 1}
+    }
+]
+
+warehouses = [
+    {
+        'w_location': (0, 0),
+        'w_products': [3, 1, 0]
+    },
+    {
+        'w_location': (5, 5),
+        'w_products': [1, 0, 2]
+    }
+]
+
+OrdersPlanified = [
+	{
+		'warehouse_id' : 0
+		'w_location' : (0,0)
+		'product_info' : {
+			0 : [	
+				{'order_id': 0, 'o_location' : (1,1), 'quantity' : 3},
+				{'order_id': 1, 'o_location' : (3,3), 'quantity' : 1}
+				
+				
+			]		
+	},
+	{
+		'warehouse_id' : 1
+		'w_location' : (0,0)
+		'product_info' : {
+			1 : [
+				{'order_id': 0, 'o_location' : (1,1), 'quantity' : 1},
+				
+			]
+	}
+		
+]
+
+
+
+
+
+
+Pour une order, on va voir pour chaque product_type, les entrepôts les plus proches d'un drone dronné à une certaine position les items dispos. Une fois 
+
+Ainsi, on va une structure de données de ce type pour les orders_planified
+
+OrdersPlanified = [
+    {
+        'order_id': 0,
+        'order_location': (1, 1),
+        'product_info': {
+            		2: [
+            			{'warehouse_id': 1, 'distance': (5, 5), 'quantity': 1}
+            		],
+            		0: [
+                		{'warehouse_id': 0, 'distance': (0, 0), 'quantity': 3},
+                		{'warehouse_id': 1, 'distance': (5, 5), 'quantity': 1}
+            		],
+        },
+    },
+    {
+        'order_id': 1,
+        'order_location': (3, 3),
+        'product_info': {
+            		0: [
+                		{'warehouse_id': 0, 'distance': (0, 0), 'quantity': 1},
+            		],
+        },
+    }
+]
+
+c'est à dire que j'obtiens :
+
+OrdersPlanifiedperWarehouse = [
+	{
+		'warehouse_id':0,
+		'w_location' : (0,0)
+		'orders' : ...	
+	}
+	{
+		'warehouse_id': 1,
+		'w_location' : (3,3)
+		'orders' : ...	
+	}
+]
+
+
+
+
+
+mise à jour de warehouses
+warehouses = [
+    {
+        'w_location': (0, 0),
+        'w_products': [0, 0, 0]
+    },
+    {
+        'w_location': (5, 5),
+        'w_products': [0, 0, 1]
+    }
+]
+
+
+[
+	{
+	'order_id': 0, 
+	'order_location': (1, 1), 
+	'product_info': {
+		2: 
+		{'warehouse_id': 1, 'distance': 6, 'quantity': 1}, 
+		0: []
+		}
+		}, {'order_id': 1, 'order_location': (3, 3), 'product_info': {1: {'warehouse_id': 0, 'distance': 5, 'quantity': 1}}
+	}
+]
+
+
+une fois qu'on a les commandes planifiées, on peut faire ceci: 
+
+warehousesPlanified = [
+    {
+        'warehouse_id': 0,
+        'w_location': (0, 0),
+        'product_info': {
+            0: [{'order_id': 0, 'o_location': (1, 1), 'quantity': 3}],
+            1: [{'order_id': 1, 'o_location': (3, 3), 'quantity': 1}],
+            2: [{'order_id': 0, 'o_location': (1, 1), 'quantity': 0}]
+        }
+    },
+    {
+        'warehouse_id': 1,
+        'w_location': (5, 5),
+        'product_info': {
+            0: [{'order_id': 2, 'o_location': (3, 3), 'quantity': 1}],
+            1: [],
+            2: [
+                {'order_id': 2, 'o_location': (3, 3), 'quantity': 1},
+                {'order_id': 0, 'o_location': (1, 1), 'quantity': 1}
+            ]
+        }
+    }
+]
+
+
+Notre algorthme de livraison va être ainsi:
+
+	- Pour chaque drone le plus proche de l'entrepot. charger le type de produit en quantité selon la charge_maximale de tout drone. 
+	Une fois rempli, il part livrer les produits de la commande la plus proche à la plus éloignée jusqu'à la dernière quantité.
+
+	
+
+
+	Pour chaque drone le plus proche d'un entrepot, 
+		- Si l'entrepot dispose au moins un article dont la quantité est supérieur à 0 il se rend dans cet entrepot
+			// charger_un_drone
+		- sinon il regarde le prochain entrepot le plus proche.
+
+
+	
+	Pour chaque drone dans un entrepot, on le charge à la limite de la charge maximale puis on met à jour les quantités dans le warehouse_planified
+
+
+	Une fois le drone chargé, il livre les articles du client le plus proche jusqu'au plus éloigné. C'est une fois qu'il a livré toutes les commandes sur lui. qu'il va rechercher un entrepot pour se charger. 
+
+	Les drones initialement au premier entrepot, ils sortiront un à un. on utilisera les commandes load/ deliver/ wait.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

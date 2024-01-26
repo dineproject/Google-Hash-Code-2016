@@ -1,36 +1,36 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-"""Module principal pour la mise en oeuvre du projet Poly#.
-"""
-
-# Vous pouvez structurer votre code en modules pour améliorer la
-# compréhension et faciliter le travail collaboratif
+from os import path, makedirs
+from sys import setrecursionlimit
+from math import ceil, sqrt
+from classes import Simulation
 from polyparser import parse_challenge
-from polysolver import solve, score_solution, save_solution
+from polysolver import solve
+import argparse
+
+setrecursionlimit(10000)
+
+def main():
+    parser = argparse.ArgumentParser(description='Solve Polyhash 2016 challenge')
+    parser.add_argument('file_path', type=str, help='Path to the input file')
+
+    args = parser.parse_args()
+    file_path = args.file_path
+
+    var_optimize = 1
+
+    file_path_optimize = file_path.split('/')[-1]
+    
+    if file_path_optimize == "a_example.in":
+        var_optimize = 0.1
+    elif file_path_optimize == "b_busy_day.in":
+        var_optimize = 0.4627
+    elif file_path_optimize == "c_redudancy.in":
+        var_optimize = 0.0889
+    elif file_path_optimize == "d_mother_of_all_warehouses.in":
+        var_optimize = 0.2147   
+
+
+    challenge = parse_challenge(file_path)
+    solve(challenge, var_optimize)
 
 if __name__ == "__main__":
-    # On fournit ici un exemple permettant de passer un simple
-    # argument (le fichier du challenge) en paramètre. N'hésitez pas à
-    # compléter avec d'autres paramètres/options.
-
-    # Consultez la documentation du module argparse:
-    # https://docs.python.org/3/library/argparse.html
-
-    import argparse
-    parser = argparse.ArgumentParser(description='Solve Poly# challenge.')
-    parser.add_argument('challenge', type=str,
-                        help='challenge definition filename',
-                        metavar="challenge.txt")
-    parser.add_argument('output', type=str, default=None,
-                        help='output filename',
-                        metavar="sortie.txt")
-    args = parser.parse_args()
-
-    challenge = parse_challenge(args.challenge)
-    solution = solve(challenge)
-    if args.output is not None:
-        # Sauvegarder le fichier généré
-        save_solution(args.output, solution)
-        print(f"Solution saved in {args.output}")
-    print(f"Score: {score_solution(solution)}")
+    main()
