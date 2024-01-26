@@ -1,3 +1,11 @@
+# Fonctionnement du projet
+
+Pour exécuter le projet, utilisez le script `polyhash.py`. Voici un exemple de commande :
+
+```bash
+python polyhash.py ./challenges/a_example.in
+```
+
 # Projet PolyHash
 
 Le Projet PolyHash se concentre sur le développement d'un système de gestion de livraison, utilisant des drones pour l'acheminement des commandes. Le projet est structuré à l'aide de quatre fichiers clés. Les fichiers inclus sont les suivants :
