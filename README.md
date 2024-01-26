@@ -3,7 +3,7 @@
 Pour exécuter le projet, utilisez le script `polyhash.py`. Voici un exemple de commande :
 
 ```bash
-python polyhash.py ./challenges/a_example.in
+python polyhash.py ./challenges/a_example.in 
 ```
 
 Cela va créer un repertoire ./output (si pas fait) dans le lequel seront contenus les fichiers de sortie.
@@ -121,15 +121,7 @@ Le déroulement de notre simulation se passe dans le fichier `polysolver.py` via
    - Livrer les articles dans l'inventaire du drone `d` à la commande `o`.
    - Si la commande est complétée, passer à la suivante. Sinon, reprendre le processus jusqu'à ce qu'elle soit complète.
 
-## Fonctionnement du projet
 
-Pour exécuter le projet, utilisez le script `polyhash.py`. Voici un exemple de commande :
-
-```bash
-python polyhash.py ./challenges/challenge.in
-```
-
-## A. Création des classes
 
 Les membres de l'équipe CIDIA, qui ont fourni ces livrables sont : 
 
