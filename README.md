@@ -1,6 +1,8 @@
 # Fonctionnement du projet
 
-Pour exécuter le projet, utilisez le script `polyhash.py`. Voici un exemple de commande :
+
+
+Pour exécuter le projet : utiliser python3 sur linux (car chemins sont séparés par des slash /) utilisez le script `polyhash.py`. Voici un exemple de commande :
 
 ```bash
 python polyhash.py ./challenges/a_example.in 
