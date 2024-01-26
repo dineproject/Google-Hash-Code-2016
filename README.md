@@ -59,9 +59,9 @@ Avant de commencer l'implémentation de la solution , on s'est d'abord orienté 
    - `b_busy_day.in`
    ![](./media/b_busy_day_in.png)
    - `c_redudancy.in`
-   ![Alt text](./media/c_redudancy.png)
+   ![](./media/c_redudancy_in.png)
    - `mother_of_all_warehouses.in`
-   ![Alt text](./media/d_mother_of_all_warehouses.png)
+   ![](./media/d_mother_of_all_warehouses_in.png)
 
 2. **Analyse statistique des données :**
    - Moyenne du poids d'un type de produit
