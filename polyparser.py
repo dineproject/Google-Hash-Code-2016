@@ -1,21 +1,23 @@
 from classes import Simulation, Drone, Warehouse, Order, ProductType
 
 def parse_challenge(file_path):
-
+    
+    # Extraire le nom du fichier de sortie à partir du chemin d'entrée
     output_file = file_path.split('/')[-1] 
     output_file = output_file.split('.')[0] + '.out'
+
     # Lire le fichier d'entrée dans le repertoire /challenges
     with open(file_path, 'r') as file:
         lines = file.readlines()
 
-    # premier bloc de données : 1ère ligne
+    # premier bloc de données : "1ère ligne où on etrait les paramètres de la première ligne du fichier"
     rows, columns, drones_count, turns, max_payload = map(int, lines[0].split())
     
-    # deuxième bloc de données : 2ème ligne
+    # deuxième bloc de données : "2ème ligne où on extrait le nombre de types de produits et créer une liste d'objets ProductType"
     product_types_count = int(lines[1])
     product_types = [ProductType(i, int(weight)) for i, weight in enumerate(lines[2].split())]
 
-    # troisième bloc de données
+    # troisième bloc de données : "où on extrait les informations sur les entrepôts du fichier"
     current_line = 3
     warehouses_count = int(lines[current_line])
     warehouses = []
@@ -27,7 +29,7 @@ def parse_challenge(file_path):
         
         warehouses.append(Warehouse(i, location, inventory))
 
-    # quatrième bloc de données
+    # quatrième bloc de données : "où on extrait les informations sur les commandes du fichier"
     current_line += 1
     orders_count = int(lines[current_line])
     orders = []
