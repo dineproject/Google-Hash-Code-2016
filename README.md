@@ -1,3 +1,13 @@
+# Fonctionnement du projet
+
+Pour exécuter le projet, utilisez le script `polyhash.py`. Voici un exemple de commande :
+
+```bash
+python polyhash.py ./challenges/a_example.in
+```
+
+Cela va créer un repertoire ./output (si pas fait) dans le lequel seront contenus les fichiers de sortie.
+
 # Projet PolyHash
 
 Le Projet PolyHash se concentre sur le développement d'un système de gestion de livraison, utilisant des drones pour l'acheminement des commandes. Le projet est structuré à l'aide de quatre fichiers clés. Les fichiers inclus sont les suivants :
@@ -53,15 +63,18 @@ Avant de commencer l'implémentation de la solution , on s'est d'abord orienté 
 
 1. **Représentation des données sur un plan orthonormé :**
    -Pour chaque fichier dans le répertoire `/challenges`, les données sont représentées graphiquement sur un plan orthonormé.
-   -Le code nécessaire pour cette représentation se trouve dans `data_analyse.ipynb`.
 
-   Exemple :
    - `b_busy_day.in`
-   ![Alt text](b_busy_day_in.png)
+
+   ![](./media/b_busy_day_in.png)
+
    - `c_redudancy.in`
-   ![Alt text](c_redudancy.png)
+
+   ![](./media/c_redudancy_in.png)
+
    - `mother_of_all_warehouses.in`
-   ![Alt text](mother_of_all_warehouses.png)
+
+   ![](./media/d_mother_of_all_warehouses_in.png)
 
 2. **Analyse statistique des données :**
    - Moyenne du poids d'un type de produit
@@ -114,3 +127,14 @@ Pour exécuter le projet, utilisez le script `polyhash.py`. Voici un exemple de 
 
 ```bash
 python polyhash.py ./challenges/challenge.in
+```
+
+## A. Création des classes
+
+Les membres de l'équipe CIDIA, qui ont fourni ces livrables sont : 
+
+- Souaibou Dine Barry; souaibou-dine.barry@etu.univ-nantes.fr 
+- Seynabou Faye; seynabou.faye@etu.univ-nantes.fr
+- Younes Hammoutene; younes.hammoutene@etu.univ-nantes.fr
+- Sirine Dakhli sirine.dakhli@etu.univ-nantes.fr
+

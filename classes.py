@@ -1,8 +1,5 @@
-import math
-
 # classe pour la simulation
 class Simulation:
-    # Instanciation d'un objet
     def __init__(self, rows, columns, drones, turns, max_payload, product_types, warehouses, orders, output_file = None):
         self.rows = rows
         self.columns = columns
@@ -13,7 +10,7 @@ class Simulation:
         self.warehouses = warehouses
         self.orders = orders
         self.output_file = output_file
-    # Méthode pour trier les commandes 
+
     def sort_orders(self):
         # trier par différents produits en ordre croissant
         self.orders.sort(key=lambda x: sum(x.inventory.values())) 
@@ -21,12 +18,11 @@ class Simulation:
         self.orders.sort(key=lambda x: len(x.inventory)) 
         # trier par poids en ordre croissant
         self.orders.sort(key=lambda x: sum([self.product_types[product_type].weight * quantity for product_type, quantity in x.inventory.items()])) 
-
+        
         return self.orders
 
 # classe pour le drone
 class Drone:
-    # instanciation de la classe
     def __init__(self, drone_id, location):
         self.drone_id = drone_id
         self.location = location
