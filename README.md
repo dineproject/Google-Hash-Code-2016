@@ -129,8 +129,7 @@ Pour exécuter le projet, utilisez le script `polyhash.py`. Voici un exemple de 
 python polyhash.py ./challenges/challenge.in
 ```
 
-L'équipe
-========
+## A. Création des classes
 
 Les membres de l'équipe CIDIA, qui ont fourni ces livrables sont : 
 
