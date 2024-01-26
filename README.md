@@ -6,7 +6,7 @@ Pour exécuter le projet, utilisez le script `polyhash.py`. Voici un exemple de 
 python polyhash.py ./challenges/a_example.in
 ```
 
-Cela va créer un repertoire ./output (si pas fait) dans le lequel seront contenus les fichiers de sortis.
+Cela va créer un repertoire ./output (si pas fait) dans le lequel seront contenus les fichiers de sortie.
 
 # Projet PolyHash
 
