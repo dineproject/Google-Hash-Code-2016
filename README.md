@@ -6,6 +6,8 @@ Pour exécuter le projet, utilisez le script `polyhash.py`. Voici un exemple de 
 python polyhash.py ./challenges/a_example.in
 ```
 
+Cela va créer un repertoire ./output (si pas fait) dans le lequel seront contenus les fichiers de sortis.
+
 # Projet PolyHash
 
 Le Projet PolyHash se concentre sur le développement d'un système de gestion de livraison, utilisant des drones pour l'acheminement des commandes. Le projet est structuré à l'aide de quatre fichiers clés. Les fichiers inclus sont les suivants :
@@ -71,7 +73,7 @@ Avant de commencer l'implémentation de la solution , on s'est d'abord orienté 
    ![](./media/c_redudancy_in.png)
 
    - `mother_of_all_warehouses.in`
-   
+
    ![](./media/d_mother_of_all_warehouses_in.png)
 
 2. **Analyse statistique des données :**
