@@ -1,5 +1,3 @@
-import math
-
 # classe pour la simulation
 class Simulation:
     def __init__(self, rows, columns, drones, turns, max_payload, product_types, warehouses, orders, output_file = None):

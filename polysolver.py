@@ -1,14 +1,14 @@
 from os import path, makedirs
 from classes import Simulation
 from polyparser import parse_challenge
-import math
+from math import sqrt, ceil
 
 
 def solve(simulation, var_optimize):
 
     # fonction pour calculer la distance entre deux points et l'arrondir à l'entier supérieur
     def calculate_distance(location1, location2):
-        return math.ceil(math.sqrt((location1[0] - location2[0]) ** 2 + (location1[1] - location2[1]) ** 2))
+        return ceil(sqrt((location1[0] - location2[0]) ** 2 + (location1[1] - location2[1]) ** 2))
 
 
 
@@ -37,7 +37,7 @@ def solve(simulation, var_optimize):
         warehouse_location = warehouse.location
 
         # trier les drones qui n'ont pas attein leur limite de tour
-        eligible_drones = [drone for drone in drones if drone.current_turn < math.ceil((simulation.turns*var_optimize))]
+        eligible_drones = [drone for drone in drones if drone.current_turn < ceil((simulation.turns*var_optimize))]
 
         # Trier les drones en fonction de la distance
         sorted_drones = sorted(eligible_drones, key=lambda drone: calculate_distance(drone.location, warehouse_location))
@@ -163,8 +163,6 @@ def solve(simulation, var_optimize):
             for command in delivery_plan:
                 file.write(' '.join(map(str, command)) + '\n')
 
-
-
     # fonction pour traiter les commandes
     def process_orders(simulation, orders, delivery_plan):
         # vérifier si la liste des commandes n'est pas vide
@@ -207,4 +205,3 @@ def solve(simulation, var_optimize):
 
     # proceder à la livraison des commandes une par une
     process_orders(simulation, simulation.orders, delivery_plan)
-
