@@ -1,7 +1,6 @@
 # Fonctionnement du projet
 
 
-
 Pour exécuter le projet : utiliser python3 sur linux (car chemins sont séparés par des slash /) utilisez le script `polyhash.py`. Voici un exemple de commande :
 
 ```bash
@@ -10,7 +9,7 @@ python src/polyhash.py ./challenges/a_example.in
 
 Cela va créer un repertoire ./output (si pas fait) dans le lequel seront contenus les fichiers de sortie.
 
-# Projet PolyHash
+# Projet PolyHash2023 | Google Hash Code 2016 : Delivery
 
 Le Projet PolyHash se concentre sur le développement d'un système de gestion de livraison, utilisant des drones pour l'acheminement des commandes. Le projet est structuré à l'aide de quatre fichiers clés. Les fichiers inclus sont les suivants :
 
@@ -123,6 +122,15 @@ Le déroulement de notre simulation se passe dans le fichier `polysolver.py` via
    - Livrer les articles dans l'inventaire du drone `d` à la commande `o`.
    - Si la commande est complétée, passer à la suivante. Sinon, reprendre le processus jusqu'à ce qu'elle soit complète.
 
+## E. Résultats de la simulation
+
+| Fichier                               | Score   |
+|---------------------------------------|---------|
+| a_example.in                          | 234     |
+| b_busy_day.in                         | 98708   |
+| c_redudancy.in                        | 96670   |
+| d_mother_of_all_warehouses.in         | 73051   |
+| **Score total**                       | **268663** |
 
 
 Les membres de l'équipe CIDIA, qui ont fourni ces livrables sont : 
