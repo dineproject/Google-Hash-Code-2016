@@ -5,7 +5,7 @@
 Pour exécuter le projet : utiliser python3 sur linux (car chemins sont séparés par des slash /) utilisez le script `polyhash.py`. Voici un exemple de commande :
 
 ```bash
-python polyhash.py ./challenges/a_example.in 
+python src/polyhash.py ./challenges/a_example.in 
 ```
 
 Cela va créer un repertoire ./output (si pas fait) dans le lequel seront contenus les fichiers de sortie.
